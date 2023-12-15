@@ -12,7 +12,8 @@ h1{
 }
 
 h2{
-
+    font-weight: 800;
+    font-size: 50px;
 }
 
 h3{
@@ -25,10 +26,17 @@ h4{
     font-size: 20px;
 }
 
+p{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
 .wrapper{
-    width: 960;
+    width: 860px;
     margin: 0 auto;
 }
+/* in order to see what you're working with, useful to have a temporary bgcolor to visualize borders */
 
 .herobanner{
     background-color: #007fff;
@@ -38,7 +46,8 @@ h4{
     position: relative;
     overflow: hidden;
 }
-/* vh = viewport height and drags the banner down the entire length of the viewable screen at the time of accessing? */
+/* vh = viewport height and drags the banner down the entire length of the viewable screen at the time of accessing?
+This looked really overwhelming on my screen, hero banner was the entire window. I switched from 100 to 50vh and it was reasonable. */
 
 .herobanner h1{
     color: white;
@@ -102,21 +111,71 @@ button.cta.alt{
     box-shadow: 0 0 0 10px rgba(0,0,0,.15);
 }
 
+nav{
+    height: 100px;
+    background-color: white;
+    box-shadow: 0 5px 8px rgba(0,0,0,.2);
+    position: sticky;
+    top: 0;
+}
+/* how does that 'top' line know that it affects where the sticky begins and not something else?
+What is telling it that it correlates to the sticky and not the box shadow or height or something? */
+
+nav .logo{
+    display: block;
+    width: 344px;
+    height: 182px;
+    position: absolute; top: 35%; left: 0;
+    margin-top: -20px;
+    margin-left: 30px;
+    background: url(img/characters/relative-pot.png) no-repeat 0 0;
+    background-size: 40%;
+    overflow: hidden;
+    text-indent: -999px;
+}
+/* those last two lines hide the text that remains visible under the graphic of the logo. I wonder if the text of the graphic is
+even needed? Is this showing up because of the text present in the html? Uncertain. */
+
+nav ul{
+    padding: 0;
+    margin: 0 20px 0 0;
+}
+
+nav ul li{
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: right;
+}
+
+nav ul li a{
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #111111;
+    text-decoration: none;
+    padding: 35px 10px;
+    line-height: 30px;
+}
+/*  confused as to why we needed the line-height bit. When adjusting padding to 30px instead of 35px fixed it.
+    Extra line feels redundant. Does it function better somehow this way?? */
+
+.moreinfo{
+    text-align: center;
+}
+
+
+
 /* 
 
- <div class="herobanner">
-        <div class="wrapper">
-            <h4>Rich from <a href="https://taptapkaboom.com">Tap Tap Kaboom</a> presents</h4>
-            <h1>The Silliest &amp;<br/>
-                Most Awesome Gang<br/>
-                In The World!</h1>
-            <h3>It's Circle Guy, Hat Guy &amp; Red Guy.<br/>
-                They're the best of friendsd.</h3>
-            <a class="cta alt" href="#moreinfo">Read More</a>
-        </div>
-        <div class="character1"></div>
-        <div class="character2"></div>
-        <div class="character3"></div>
+    <div class="moreinfo" id="moreinfo">
+        <h2>Join Our Fan Club</h2>
+        <p>Every week we have <span class="highlight">a party.</span> If you want to join us then join our fan club. 
+            Members will also receive pictures of us in all kinds of shapes and sizes. Cool huh?</p>
+        <button class="cta">Sign Me Up!</button>
     </div>
 
 */
