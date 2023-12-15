@@ -102,7 +102,16 @@ button.cta{
     padding: 20px 30px;
     border-radius: 10px;
     text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
+
+a.cta:active,
+button.cta:active{
+    opacity: .7;
+}
+/* this segment styles the way the button appears while it is being depressed */
 
 a.cta.alt,
 button.cta.alt{
@@ -117,6 +126,7 @@ nav{
     box-shadow: 0 5px 8px rgba(0,0,0,.2);
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 /* how does that 'top' line know that it affects where the sticky begins and not something else?
 What is telling it that it correlates to the sticky and not the box shadow or height or something? */
@@ -179,13 +189,121 @@ nav ul li a{
     font-weight: bold;
 }
 
+.sep{
+    width: 475px;
+    height: 10px;
+    background-color: #111111;
+    margin: 70px auto;
+}
+
+.story h3{
+    font-size: 40px;
+    font-weight: 800;
+}
+/* this segment added because too many things are sharing h3 status but they don't all share font size
+this segment overrides the generalized h3 styling for everything within story segment. */
+
+.nb-list{
+    width: 470px;
+    padding: 20px 20px 0 20px;
+    box-sizing: border-box;
+    background-color: #EDEDED;
+    float: left;
+    margin: 0 20px 20px 0;
+    position: relative;
+}
+
+.nb-list li{
+    height: 70px;
+    border-radius: 10px;
+    font-size: 40px;
+    color:white;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+    padding: 6px 20px;
+    box-sizing: border-box;
+}
+
+.nb-list li.red{background-color: red;}
+.nb-list li.blue{background-color: blue;}
+.nb-list li.yellow{
+    background-color: yellow;
+    color: #111111;
+}
+.nb-list li.pink{background-color: pink;}
+.nb-list li.salmon{background-color: salmon;}
+.nb-list li.gray{background-color: rgba(0,0,0,.1);}
+
+.nb-list li.dragging{
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    right: -30px;
+    transform: rotate(6deg);
+    box-shadow: 0 2px 14px rgba(0,0,0,.3);
+}
+
+.nb-list li.dragging:after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 42px;
+    height: 41px;
+    background: url(img/characters/bored-guy.png) no-repeat 0 0;
+    background-size: 110%;
+    bottom: 2px;
+    left: 75%;
+}
+/* by setting it as a pseudoclass this appears to follow the flow of the parent item, I didn't need to do a transform rotate
+because the parent box was already rotated. Very convenient! */
+
+.gangimage{
+    display: block;
+    margin: 0 auto;
+}
+
+footer{
+    text-align: center;
+    color: rgba(0,0,0,.4);
+    font-size: 20px;
+    margin: 85px 0 45px;
+    font-weight: bold;
+}
+
+footer a{
+    color: rgba(0,0,0,.4);
+}
+
+.popup{
+    display: none;
+}
+
 /* 
 
-    <div class="moreinfo" id="moreinfo">
-        <h2>Join Our Fan Club</h2>
-        <p>Every week we have <span class="highlight">a party.</span> If you want to join us then join our fan club. 
-            Members will also receive pictures of us in all kinds of shapes and sizes. Cool huh?</p>
-        <button class="cta">Sign Me Up!</button>
+ <div class="sep"></div>
+    <div class="story" id="story">
+        <ul class="nb-list">
+            <li class="blue">Rock 'n Roll</li>
+            <li class="gray">&nbsp;</li>
+            <li class="yellow dragging">Laughter</li>
+            <li class="red">Square Offs</li>
+            <li class="pink">Circuitous Routes</li>
+            <li class="salmon">Trigonometry</li>
+            <li class="blue">Rad Hats</li>
+            <li class="yellow">Being Silly</li>
+        </ul>
+        <h3>Left: Things We Find Important<br/>
+            Below: Our Story</h3>
+            <p>Once upon a time there was a group of shapes. They were mostly black and rectangular.
+                They were mean and very serious.</p>
+            <p>And so they kicked the 3 shapes that diddn't conform out of their gang, which was
+                called the Right Angle Gang.</p>
+            <p>And so these 3 shapes were very sad, but found great joy and comfort being around each
+                other. They soon started having a lot of fun, started rocking and rolling, started
+                being silly, and became the most well-known shape gang in the universe.</p>
+            <p>They even started making fun of squares and rectangles in what they like ot call 'Square Offs'!</p>
     </div>
+    <div class="sep"></div>
 
 */
